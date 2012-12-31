@@ -1,0 +1,4 @@
+wp-config-local.php
+wp-config-dev.php
+wp-config-qa.php
+wp-config-prod.php
