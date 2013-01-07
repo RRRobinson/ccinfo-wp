@@ -16,10 +16,16 @@
 
 if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
-	define( 'WP_LOCAL_DEV', true ); // We'll talk about this later
+	define( 'WP_ENVIRONMENT', 'local' ); // In case you need to do different things by environment
 } elseif ( file_exists( dirname( __FILE__ ) . '/wp-config-dev.php' ) ) {
 	include( dirname( __FILE__ ) . '/wp-config-dev.php' );
-	define( 'WP_LOCAL_DEV', true ); // We'll talk about this later
+	define( 'WP_ENVIRONMENT', 'dev' ); // In case you need to do different things by environment
+} elseif ( file_exists( dirname( __FILE__ ) . '/wp-config-qa.php' ) ) {
+	include( dirname( __FILE__ ) . '/wp-config-qa.php' );
+	define( 'WP_ENVIRONMENT', 'qa' ); // In case you need to do different things by environment
+}  elseif ( file_exists( dirname( __FILE__ ) . '/wp-config-prod.php' ) ) {
+	include( dirname( __FILE__ ) . '/wp-config-prod.php' );
+	define( 'WP_ENVIRONMENT', 'prod' ); // In case you need to do different things by environment
 } else {
 	die('System Configuration Error');
 }
